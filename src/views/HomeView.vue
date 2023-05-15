@@ -5,8 +5,9 @@ import { RouterLink } from 'vue-router'
 <template>
   <div class="main">
     <div class="left">
-      <h1>Prazer, meu nome é Gustavo</h1>
-    </div>
+        <h2>Prazer, meu nome é Gustavo</h2>
+        <h1>Um Dev Full-Stack </h1>
+      </div>
     <div class="right">
       <div class="wrapper">
         <nav>
@@ -27,6 +28,17 @@ import { RouterLink } from 'vue-router'
     display: flex;
     justify-content: space-between;
     background-color: #0C4173;
+    h1 {
+      margin-top: 150px;
+      font-weight: 600;
+      margin-left: 30px;
+      font-size: 66px;
+    }
+    h2 {
+      margin-left: 7px;
+      width:400px;
+      font-size: 42px;
+    }
   }
   .left {
     margin: 20px;
