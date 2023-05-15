@@ -11,9 +11,9 @@ import { RouterLink } from 'vue-router'
       <div class="wrapper">
         <nav>
           <RouterLink active-class="active" to="/about">Sobre Mim</RouterLink>
-          <RouterLink to="/project">Projetos</RouterLink>
+          <RouterLink to="/projects">Projetos</RouterLink>
           <RouterLink to="/posts">Posts</RouterLink>
-          <RouterLink to="/study">Estudos</RouterLink>
+          <RouterLink to="/studies">Estudos</RouterLink>
         </nav>
       </div>
       <div class="triangle"></div>
