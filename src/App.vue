@@ -1,17 +1,47 @@
 <script setup lang="ts">
-import { RouterView } from 'vue-router'
-const rightColor = '#0C4173'
-const leftColor = '#0C4173'
+import { RouterView } from 'vue-router';
+import { watch, ref } from 'vue'
+import { useRoute } from 'vue-router';
+let rightColor = ref('');
+let leftColor  = ref('');
+
+function getTheColors(path: string) {
+  switch (path) {
+    case '/posts':
+      leftColor.value = '#623D87';
+      rightColor.value = '#483D87';
+      break;
+    case '/studies':
+    case '/projects':
+      leftColor.value = '#0C5473';
+      rightColor.value = '#93162A';
+      break;
+    case '/about':
+      leftColor.value = '#623D87';
+      rightColor.value = '#0C4173';
+      break;
+    default:
+      leftColor.value = '#0C4173';
+      rightColor.value = '#0C4173';
+      break;
+  }
+}
+
+getTheColors(window.location.pathname)
+
+watch(useRoute(), ({ path }) => {
+  getTheColors(path);
+});
 </script>
 
 
 
 <template>
-  <div class="main">
-    <div class="Left"></div>
-    <div class="Right"></div>
+  <div class="main" >
+    <div class="Left" :style="{ backgroundColor: leftColor }"></div>
+    <div class="Right" :style="{ backgroundColor: rightColor }"></div>
     <div class="RouterClass">
-      <RouterView />
+      <RouterView/>
     </div>
   </div>
 </template>
@@ -23,11 +53,9 @@ const leftColor = '#0C4173'
     height: 100vh;
   }
   .Left{
-    background-color: v-bind('leftColor');
     width: 50vw;
   }
   .Right{
-    background-color:  v-bind('rightColor');
     width: 50vw;
   }
   .RouterClass{

@@ -1,12 +1,22 @@
 <script setup lang="ts">
-import { RouterLink } from 'vue-router'
+import { RouterLink, useRoute } from 'vue-router'
+import { watch } from 'vue'
+
+let currentPage = useRoute()?.query?.page || 0;
+
+watch(useRoute(), ({query})=>{
+  if(query.page){
+    currentPage = query.page;
+  }
+});
 
 </script>
 
 <template>
   <div class="main">
     <div class="TextPart">
-      <h2>Post #2</h2>
+      <RouterLink :to="{ path: '/'}">{{'<'}} Back</RouterLink>
+      <h2>Post #{{ currentPage }}</h2>
       <h4>13/06</h4>
       
     </div>
@@ -15,7 +25,7 @@ import { RouterLink } from 'vue-router'
         <h1>Posts</h1>
         <nav>
           <span :key="n" v-for="n in 10">
-            <RouterLink active-class="active" :to="{ path: '/posts', query: { page: n} }">Post {{ n }}</RouterLink>
+            <RouterLink active-class="active" :to="{ path: '/posts', query: { page: n} }">Post {{ n }} - 13/06</RouterLink>
           </span>
         </nav>
       </div>
@@ -29,11 +39,16 @@ import { RouterLink } from 'vue-router'
   display: flex;
   justify-content: space-between;
   background-color: #623D87;
+  color:#E4F7FF;
 }
 
 .TextPart {
   margin-top: 20px;
   margin-left: 27px;
+  a{
+    color:#E4F7FF;
+    font-weight: 700;
+  }
   h2 {
     width: 30vw;
     font-size: 3.07vw;

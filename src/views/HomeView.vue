@@ -28,6 +28,7 @@ import { RouterLink } from 'vue-router'
     display: flex;
     justify-content: space-between;
     background-color: #0C4173;
+    color:#E4F7FF;
   }
   .TextPart {
     margin: 20px;
