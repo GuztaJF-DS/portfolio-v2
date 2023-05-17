@@ -44,12 +44,17 @@ watch(useRoute(), ({query})=>{
   justify-content: space-between;
   background-color: #520F96;
   color:#E4F7FF;
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 .TextPart {
   margin-top: 20px;
   margin-left: 27px;
   width: 65%;
+  
   overflow-y: auto;
   a{
     color:#E4F7FF;
@@ -95,16 +100,39 @@ watch(useRoute(), ({query})=>{
   .wrapper {
     background-color: #FFF312;
     width: 20vw;
-    max-height: 100vh;
+    height: 100%;
     max-width: 288px;
+    display: flex;
+    flex-direction: column;
     text-align: center;
+
+    ::-webkit-scrollbar {
+      display: block;
+      width: 10px;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #bbb20f; 
+    }
+
+    h1 {
+      color: #263034;
+      margin: auto;
+      font-size: 3vw;
+      font-weight: bold;
+      @media (min-width:1440px) {
+        font-size: 43.17px;
+      }
+      @media (max-width: 768px) {
+        font-size: 23.07px;
+      }
+    }
 
     nav {
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
       overflow-y: auto;
-      max-height: 81%;
+      max-height: 84%;
       span {
         margin-bottom: 0.5vw;
       }
@@ -115,19 +143,6 @@ watch(useRoute(), ({query})=>{
           font-size: 33.56px;
         }
       }
-    }
-  }
-
-  h1 {
-    color: #263034;
-    font-size: 3vw;
-    font-weight: bold;
-    margin: 25px 0px;
-    @media (min-width:1440px) {
-      font-size: 43.17px;
-    }
-    @media (max-width: 768px) {
-      font-size: 23.07px;
     }
   }
 
